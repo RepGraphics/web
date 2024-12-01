@@ -412,10 +412,10 @@
         syncFilters()
         var a = document.getElementById("css-filter-themes");
         if (filterThemes.checked) { 
-          param('1', 'y') 
+          param('Themes', 'Visible') 
           a.innerHTML = ""; 
         } else { 
-          param('1', 'n') 
+          param('Themes', 'Hidden') 
           a.innerHTML = ".filter-themes { display: none }"; 
         }
         byteconfused()
@@ -424,10 +424,10 @@
         syncFilters()
         var a = document.getElementById("css-filter-extensions");
         if (filterExtensions.checked) { 
-          param('2', 'y')
+          param('Extensions', 'Visible')
           a.innerHTML = ""; 
         } else { 
-          param('2', 'n'); 
+          param('Extensions', 'Hidden'); 
           a.innerHTML = ".filter-extensions { display: none }"; 
         }
         byteconfused()
@@ -439,7 +439,7 @@
         var c = document.getElementById('filterThemes')
         var d = document.getElementById('filterExtensions')
 
-        if(url.searchParams.get('1') == 'n' && url.searchParams.get('2') == 'n') { byte.style.display = "inline" }
+        if(url.searchParams.get('Themes') == 'n' && url.searchParams.get('Extensions') == 'n') { byte.style.display = "inline" }
         else if(!c.checked && !d.checked) { byte.style.display = "inline" }
         else byte.style.display = "none"
       }
@@ -467,12 +467,12 @@
         var c = document.getElementById('filterThemes')
         var d = document.getElementById('filterExtensions')
 
-        if(url.searchParams.get('1') == 'y') { a.innerHTML = ""; c.checked = true }
-        else if(url.searchParams.get('1') == 'n') { a.innerHTML = ".filter-themes { display: none }"; c.checked = false }
+        if(url.searchParams.get('Themes') == 'Visible') { a.innerHTML = ""; c.checked = true }
+        else if(url.searchParams.get('Themes') == 'Hidden') { a.innerHTML = ".filter-themes { display: none }"; c.checked = false }
         else { a.innerHTML = ""; c.checked = true }
 
-        if(url.searchParams.get('2') == 'y') { b.innerHTML = ""; d.checked = true }
-        else if(url.searchParams.get('2') == 'n') { b.innerHTML = ".filter-extensions { display: none }"; d.checked = false }
+        if(url.searchParams.get('Extensions') == 'Visible') { b.innerHTML = ""; d.checked = true }
+        else if(url.searchParams.get('Extensions') == 'Hidden') { b.innerHTML = ".filter-extensions { display: none }"; d.checked = false }
         else { b.innerHTML = ""; d.checked = true }
         byteconfused()
         syncFilters()
